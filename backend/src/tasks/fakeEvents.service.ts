@@ -22,20 +22,20 @@ export class FakeEventsService {
       metadata: event.metadata,
     };
 
-    try {
-      const response = await fetch('https://httpbin.org/anything', {
-        method: 'POST',
-        body: JSON.stringify(payload),
-      });
-      const data = await response.json();
+    // try {
+    //   const response = await fetch('https://httpbin.org/anything', {
+    //     method: 'POST',
+    //     body: JSON.stringify(payload),
+    //   });
+    //   const data = await response.json();
 
-      await this.prisma.userActivity.create({
-        data: JSON.parse(data.data),
-      });
+    //   await this.prisma.userActivity.create({
+    //     data: JSON.parse(data.data),
+    //   });
 
-      this.logger.debug('Generated event:', event);
-    } catch (error) {
-      console.error('Error in data generation:', error.message);
-    }
+    //   this.logger.debug('Generated event:', event);
+    // } catch (error) {
+    //   console.error('Error in data generation:', error.message);
+    // }
   }
 }
