@@ -1,0 +1,41 @@
+generator clint {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model UserActivity {
+  id        String   @id @default(cuid())
+  userId    String
+  event     Event    @default(SIGNIN)
+  timestamp DateTime @default(now())
+  metadata  Json
+}
+
+enum Event {
+  SIGNUP
+  SIGNIN
+  PURCHASE
+}
+
+enum PaymentMethod {
+  CREDIT_CARD
+  PAYPAL
+  BANK_TRANSFER
+}
+
+enum SignupSource {
+  WEB
+  MOBILE
+  REFERRAL
+}
+
+enum DeviceType {
+  MOBILE
+  DESKTOP
+  TABLET
+}
