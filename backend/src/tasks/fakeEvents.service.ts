@@ -25,15 +25,15 @@ export class FakeEventsService {
     };
 
     try {
-      const response = await fetch('https://httpbin.org/anything', {
-        method: 'POST',
-        body: JSON.stringify(payload),
-      });
-      const data = await response.json();
+      // const response = await fetch('https://httpbin.org/anything', {
+      //   method: 'POST',
+      //   body: JSON.stringify(payload),
+      // });
+      // const data = await response.json();
 
-      await this.prisma.userActivity.create({
-        data: JSON.parse(data.data),
-      });
+      // await this.prisma.userActivity.create({
+      //   data: JSON.parse(data.data),
+      // });
 
       this.activityGateway.broadcastNewActivity(payload);
 
