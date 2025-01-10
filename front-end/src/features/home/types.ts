@@ -1,4 +1,5 @@
-export type Event = "SIGNUP" | "SIGNIN";
+export type Event = "SIGNUP" | "SIGNIN" | "PURCHASE";
+export type PAYMENT_METHOD = "CREDIT_CARD" | "PAYPAL" | "BANK_TRANSFER";
 
 export type SignupMetadata = {
   email: string;
@@ -23,7 +24,7 @@ export type PurchaseMetadata = {
     quantity: number;
     price: number;
   }[];
-  paymentMethod: "CREDIT_CARD" | "PAYPAL" | "BANK_TRANSFER";
+  paymentMethod: PAYMENT_METHOD;
 };
 
 export type Activity =

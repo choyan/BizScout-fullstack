@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Activity } from "../types";
 
 export function useSocket() {
-  const [activities, setActivities] = useState<Activity[]>([]);
   const [activity, setActivity] = useState<Activity | null>(null);
 
   function initializeSocket() {
@@ -16,9 +15,7 @@ export function useSocket() {
     });
 
     socket.on("newActivity", (data) => {
-      // console.log("New activity received:", data);
       setActivity(data);
-      setActivities((prev) => [data, ...prev]);
     });
 
     socket.on("disconnect", () => {
@@ -32,7 +29,6 @@ export function useSocket() {
 
   return {
     initializeSocket,
-    activities,
     activity,
   };
 }
