@@ -1,6 +1,6 @@
 
 # BizScout Fullstack Application
-![Vercel Deploy](https://deploy-badge.vercel.app/vercel/biz-scout-fullstack)
+**Live Deployment:** https://biz-scout-fullstack.vercel.app/
 
 ## Architecture overview
 The BizScout application is built as a modern full-stack project, leveraging the following architectural structure:
@@ -8,15 +8,14 @@ The BizScout application is built as a modern full-stack project, leveraging the
 ### Backend
 The backend is built using NestJS, a progressive Node.js framework for building scalable server-side applications. The backend is organized into the following key components:
 
-- Modules: Encapsulate the functionality of the application, such as user-activity.
+- **Modules:** Encapsulate the functionality of the application, such as user-activity.
+- **Services:** Contain the business logic, including integrations like Prisma and Supabase.
 
-- Services: Contain the business logic, including integrations like Prisma and Supabase.
+- **Controllers:** Handle HTTP requests and responses.
 
-- Controllers: Handle HTTP requests and responses.
+- **Gateways:** Implement WebSocket gateways for real-time communication.
 
-- Gateways: Implement WebSocket gateways for real-time communication.
-
-- Common Utilities: Shared functionalities, such as pagination logic or faker services for mock data generation.
+- **Common Utilities:** Shared functionalities, such as pagination logic or faker services for mock data generation.
 
 Data persistence is managed using Prisma ORM, with schema and migration files located under the prisma directory.
 
@@ -37,7 +36,6 @@ The backend and frontend communicate via REST APIs and WebSocket connections. We
 The application uses Supabase as the backend service for database management and real-time features, making it a seamless fit with Prisma ORM for data modeling and migrations.
 
 
-
 ## Choice of technologies
 
 I utilized Next.js and NestJS in this project because they form the core frameworks powering BizScout.
@@ -54,82 +52,67 @@ On the front-end, I implemented WebSocket functionality using socket.io-client t
 
 
 ### Backend
-
 The backend is a NestJS application.
-
-
 
 Navigate to the `backend` folder and install the dependencies.
 
-
-
 ```bash
-
 npm  install
-
 ```
 
-
-
 Setup Supabase environmental variables in the `.env` file.
-
-
 
 Initialize Prisma
 
 ```bash
-
 npx  prisma  init
-
 ```
-
-
 
 Start the development server
 
 ```bash
-
 npm  run  start:dev
-
 ```
 
-
-
 The backend server should be available at the `http://localhost:4000` port.
-
-
 
 ### Front-end
 
 The front-end is a Next.js application with App router.
 
-
-
 Navigate to the `front-end` folder and install the dependencies:
 
 ```bash
-
 npm  install
-
 ```
 
-
-
 Set the backend url at the `NEXT_PUBLIC_API_URL` property of the `.env` file.
-
-
 
 Start the development server.
 
 ```bash
-
 npm  run  dev
-
 ```
 
 ## Deployment
+The current front-end is deployed on Vercel and the backend is deployed on DigitalOcean droplet.
+
+So the `front-end` can be easily deployed on Vercel using the default Next.js configuration.
+
+The backend can be deployed on a DigitalOcean Droplet or AWS EC2.
+
+We are using PM2 here, to manage the automate the process management.
+
+In the backend server, we can built the app using `npm run build` and start the PM2 process using `pm2 start dist/src/main.js`
 
 ## Testing strategy
+### Backend
+The backend uses NestJS, which comes with built-in support for testing. The testing strategy for the backend includes the testing of `createUserActivities` method of `user-activity` module.
+
+### Frontend
+The frontend uses Vitest for testing. The testing strategy includes `msw` for api mocking.
+Three components are being tested for now.
+
 
 ## Future Improvements
 
