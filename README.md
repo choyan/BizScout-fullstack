@@ -103,7 +103,10 @@ The backend can be deployed on a DigitalOcean Droplet or AWS EC2.
 
 We are using PM2 here, to manage the automate the process management.
 
-In the backend server, we can built the app using `npm run build` and start the PM2 process using `pm2 start dist/src/main.js`
+In the backend server, we can built the app using `npm run build` and start the PM2 process using `pm2 start dist/src/main.js`.
+
+### Important Note:
+The current deployment setup does not have SSL configured for the backend. As a result, when visiting the deployed site on Vercel, you may need to manually allow "Insecure content" in your browser's site settings to enable communication between the front-end and back-end.
 
 ## Testing strategy
 ### Backend
