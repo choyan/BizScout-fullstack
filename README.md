@@ -1,6 +1,6 @@
 
 # BizScout Fullstack Application
-[![Frontend CI](https://github.com/choyan/BizScout-fullstack/actions/workflows/frontend.yml/badge.svg?branch=main)](https://github.com/choyan/BizScout-fullstack/actions/workflows/frontend.yml)
+[![Frontend CI](https://github.com/choyan/BizScout-fullstack/actions/workflows/frontend.yml/badge.svg?branch=main)](https://github.com/choyan/BizScout-fullstack/actions/workflows/frontend.yml) [![Backend CI](https://github.com/choyan/BizScout-fullstack/actions/workflows/backend.yml/badge.svg)](https://github.com/choyan/BizScout-fullstack/actions/workflows/backend.yml)
 
 **Live Deployment:** https://biz-scout-fullstack.vercel.app/
 
