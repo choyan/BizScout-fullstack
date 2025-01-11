@@ -120,5 +120,7 @@ Three components are being tested for now.
 ## Future Improvements
 
 At the moment we are declaring types multiple times. There is no sharing of Prisma generated types with the front-end.
-
 I would have loved to shared those types between the codebase.
+The test coverage has not been implemented for the Front-end and not all the components, and modules are being tested. Would loved to cover much larger area of the codebase.
+
+Currently the Dashboard is showing some statistics, which are just static numbers. Some numbers could have been generated from the data we have on the backend.
