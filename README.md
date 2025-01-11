@@ -1,5 +1,7 @@
 
 # BizScout Fullstack Application
+[![Frontend CI](https://github.com/choyan/BizScout-fullstack/actions/workflows/frontend.yml/badge.svg?branch=main)](https://github.com/choyan/BizScout-fullstack/actions/workflows/frontend.yml)
+
 **Live Deployment:** https://biz-scout-fullstack.vercel.app/
 
 ## Architecture overview
@@ -108,7 +110,9 @@ In the backend server, we can built the app using `npm run build` and start the 
 ### Important Note:
 The current deployment setup does not have SSL configured for the backend. As a result, when visiting the deployed site on Vercel, you may need to manually allow "Insecure content" in your browser's site settings to enable communication between the front-end and back-end.
 
-## Testing strategy
+## Testing & CI Pipeline
+To ensure code quality, reliability, and maintainability, the project includes plans for implementing a robust Testing and Continuous Integration (CI) pipeline.
+
 ### Backend
 The backend uses NestJS, which comes with built-in support for testing. The testing strategy for the backend includes the testing of `createUserActivities` method of `user-activity` module.
 
@@ -119,8 +123,16 @@ Three components are being tested for now.
 
 ## Future Improvements
 
-At the moment we are declaring types multiple times. There is no sharing of Prisma generated types with the front-end.
-I would have loved to shared those types between the codebase.
-The test coverage has not been implemented for the Front-end and not all the components, and modules are being tested. Would loved to cover much larger area of the codebase.
+At present, types are being declared multiple times, and there is no mechanism for sharing Prisma-generated types between the back-end and front-end. Implementing a shared type system across the codebase would greatly improve maintainability and reduce redundancy.
 
-Currently the Dashboard is showing some statistics, which are just static numbers. Some numbers could have been generated from the data we have on the backend.
+The dashboard currently displays some statistics as static numbers. Ideally, some of these numbers could be dynamically generated from the backend data to reflect real-time insights.
+
+Test coverage is incomplete, especially on the front-end. Not all components and modules have been thoroughly tested, and expanding the coverage to include a larger portion of the codebase would enhance reliability.
+
+The existing tests are fairly generic, and more thoughtful, scenario-specific tests could provide better validation for critical workflows.
+
+Add tests for handling error scenarios, such as API failures or invalid user inputs, and validate that appropriate fallback mechanisms (like error messages or retries) are in place.
+
+While deployment is partially addressed, fully automating the deployment process for both the front-end and back-end would streamline the workflow. This could involve integrating tools like Terraform / Pulumi, Docker, or AWS CDK for infrastructure management.
+
+Finally, deploying the application on an SSL-enabled server would resolve the issue of insecure content warnings and improve overall security for users.

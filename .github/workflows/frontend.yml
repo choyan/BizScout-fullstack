@@ -11,7 +11,7 @@ on:
       - 'front-end/**'
 
 jobs:
-  backend-test-and-lint:
+  front-end-test-and-lint:
     runs-on: ubuntu-latest
     defaults:
       run:
