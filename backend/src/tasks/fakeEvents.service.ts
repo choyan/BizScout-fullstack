@@ -13,8 +13,8 @@ export class FakeEventsService {
   ) {}
   private readonly logger = new Logger(FakeEventsService.name);
 
-  // Call every 5 seconds
-  @Cron('*/5 * * * * *')
+  // Call every 5 minutes
+  @Cron('5 * * * * *')
   async generateFakeActivity() {
     const event = this.faker.generateRandomEvent();
     const payload = {
@@ -25,15 +25,15 @@ export class FakeEventsService {
     };
 
     try {
-      // const response = await fetch('https://httpbin.org/anything', {
-      //   method: 'POST',
-      //   body: JSON.stringify(payload),
-      // });
-      // const data = await response.json();
+      const response = await fetch('https://httpbin.org/anything', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+      });
+      const data = await response.json();
 
-      // await this.prisma.userActivity.create({
-      //   data: JSON.parse(data.data),
-      // });
+      await this.prisma.userActivity.create({
+        data: JSON.parse(data.data),
+      });
 
       this.activityGateway.broadcastNewActivity(payload);
 
