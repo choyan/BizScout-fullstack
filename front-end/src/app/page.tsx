@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MainNav } from "@/components/main-nav";
 import { RecentSales } from "@/features/home/components/recent-sales";
 import { SocketInitializer } from "@/features/home/components/socket-initializer";
-import { PurchaseHistoryTable } from "@/features/home/components/recent-signups";
+import { RecentSignups } from "@/features/home/components/recent-signups";
 
 export const metadata: Metadata = {
   title: "BizScout Dashboard",
@@ -133,15 +133,12 @@ export default function DashboardPage() {
                 <CardTitle>Recent Signups</CardTitle>
               </CardHeader>
               <CardContent className="px-6">
-                <PurchaseHistoryTable />
+                <RecentSignups />
               </CardContent>
             </Card>
             <Card className="col-span-3">
               <CardHeader>
                 <CardTitle>Recent Sales</CardTitle>
-                {/* <CardDescription>
-                  You made 265 sales this month.
-                </CardDescription> */}
               </CardHeader>
               <CardContent>
                 <RecentSales />

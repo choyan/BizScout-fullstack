@@ -24,6 +24,6 @@ export function usePagination({ currentPage, totalPage }: UsePaginationTypes) {
       setPrevPage(currentPage - 1);
       setCanPrevPage(true);
     }
-  }, [currentPage]);
+  }, [currentPage, totalPage]);
   return [nextPage, canNextPage, prevPage, canPrevPage];
 }

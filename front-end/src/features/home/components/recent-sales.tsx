@@ -17,11 +17,14 @@ export function RecentSales() {
   }
 
   return (
-    <div>
+    <div className="-m-2">
       {data?.data
         ?.filter((item) => item.event === "PURCHASE")
         .map((item) => (
-          <div className="flex items-center mt-4" key={item.metadata.orderId}>
+          <div
+            className="flex items-center justify-between mt-4  first:mt-0"
+            key={item.metadata.orderId}
+          >
             <div className="flex space-x-2">
               <Avatar className="h-9 w-9">
                 <AvatarFallback>OM</AvatarFallback>

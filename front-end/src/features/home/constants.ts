@@ -1,5 +1,5 @@
 export const PAYMENT_METHODS = {
-  CREDIT_CARD: "Credtit Card",
+  CREDIT_CARD: "Credit Card",
   PAYPAL: "Paypal",
   BANK_TRANSFER: "Bank Transfer",
 };
